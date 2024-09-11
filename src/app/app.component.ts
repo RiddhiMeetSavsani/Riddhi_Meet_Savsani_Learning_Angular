@@ -10,4 +10,6 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   title = 'Riddhi-Meet-Savsani-Learning-Angular';
+  variable1:string = "First Variable";
+  variable2:boolean=true;
 }
