@@ -7,7 +7,7 @@
 </head>
 <body>
   <h3>All Data Related to Books</h3>
-  <table class="all">
+  <table class="header">
     <tr>
       <td >Title</td>
       <td>Author</td>
@@ -33,9 +33,19 @@
       </table>
     </div>
   <h3>Available Books With Title and Price</h3>
+  <table class="header">
+    <tr>
+      <td>
+        Title
+      </td>
+      <td>
+        Price
+      </td>
+    </tr>
+  </table>
     <div *ngFor="let book of bookList">
       <div *ngIf="book.availability">
-        <table>
+        <table class="filter">
           <tr>
             <td >
               {{book.title}}
