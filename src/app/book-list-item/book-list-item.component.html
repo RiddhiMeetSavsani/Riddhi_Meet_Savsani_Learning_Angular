@@ -1,1 +1,7 @@
-<p>book-list-item works!</p>
+<div>
+  <h3>{{ contentItem.title }}</h3>
+  <p>ISBN: {{ contentItem.isbn }}</p>
+  <p>Price: ${{ contentItem.price }}</p>
+  <p *ngIf="contentItem.availability">Available</p>
+  <p *ngIf="!contentItem.availability">Out of Stock</p>
+</div>

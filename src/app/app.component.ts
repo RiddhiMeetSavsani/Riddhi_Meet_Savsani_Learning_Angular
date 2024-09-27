@@ -2,10 +2,13 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common'; // Import CommonModule
 import {Book} from './models/book';
+import {BookListComponent} from "./book-list/book-list.component";
+import {BookListItemComponent} from "./book-list-item/book-list-item.component";
+
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CommonModule],
+  imports: [RouterOutlet, CommonModule,BookListComponent, BookListItemComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
