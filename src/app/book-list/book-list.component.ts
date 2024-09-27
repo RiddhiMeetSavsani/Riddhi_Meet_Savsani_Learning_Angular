@@ -12,48 +12,44 @@ import {CommonModule} from "@angular/common";
 })
 export class BookListComponent {
 
-  //For Assignment-3 creating new array
+  book1: Book = {
+    title: 'Book31',
+    author: "Author31",
+    genre: "Genre31",
+    publishedYear: 2020,
+    isbn: 31111,
+    price: 100,
+    availability: true
+  };
 
-  bookList3:Book[]=[
-     {
-        title: 'Book31',
-        author: "Author31",
-        genre: "Genre31",
-        publishedYear: 2020,
-        isbn: 31111,
-        price: 100,
-        availability: true
-      },
+  book2: Book = {
+    title: 'Book32',
+    author: "Author32",
+    genre: "Genre32",
+    publishedYear: 2019,
+    isbn: 32222,
+    price: 150,
+    availability: false
+  };
 
-      {
-        title: 'Book32',
-        author: "Author32",
-        genre: "Genre32",
-        publishedYear: 2019,
-        isbn: 32222,
-        price: 150,
-        availability: false
-      },
+  book3: Book = {
+    title: 'Book33',
+    author: "Author33",
+    genre: "Genre33",
+    publishedYear: 2021,
+    isbn: 33333,
+    price: 120,
+    availability: true
+  };
 
-       {
-        title: 'Book33',
-        author: "Author33",
-        genre: "Genre33",
-        publishedYear: 2021,
-        isbn: 33333,
-        price: 120,
-        availability: true
-      },
-
-      {
-        title: 'Book34',
-        author: "Author34",
-        genre: "Genre34",
-        publishedYear: 2018,
-        isbn: 34444,
-        price: 90,
-        availability: false
-      },
-
-  ];
+  book4: Book = {
+    title: 'Book34',
+    author: "Author34",
+    genre: "Genre34",
+    publishedYear: 2018,
+    isbn: 34444,
+    price: 90,
+    availability: false
+  };
 }
+
