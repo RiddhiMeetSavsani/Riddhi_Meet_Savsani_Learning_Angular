@@ -1,2 +1,17 @@
 
-
+.bookListItem{
+  border: 2px solid black;
+  padding: 10px;
+  width: 45em;
+  margin:auto;
+  margin-top: 2em;
+}
+.even{
+  background-color: aliceblue;
+}
+.odd{
+  background-color: azure;
+}
+td:first-of-type{
+  width: 60%;
+}

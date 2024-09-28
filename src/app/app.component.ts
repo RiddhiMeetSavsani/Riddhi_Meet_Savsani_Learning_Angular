@@ -21,7 +21,8 @@ export class AppComponent {
     publishedYear: 2020,
     isbn: 1111,
     price: 100,
-    availability: true
+    availability: true,
+      imageUrl:""
   };
 
     book2: Book = {
@@ -31,7 +32,8 @@ export class AppComponent {
     publishedYear: 2019,
     isbn: 2222,
     price: 150,
-    availability: false
+    availability: false,
+      imageUrl:""
   };
 
     book3: Book = {
@@ -41,7 +43,8 @@ export class AppComponent {
     publishedYear: 2021,
     isbn: 3333,
     price: 120,
-    availability: true
+    availability: true,
+      imageUrl:""
   };
 
     book4: Book = {
@@ -51,7 +54,8 @@ export class AppComponent {
     publishedYear: 2018,
     isbn: 4444,
     price: 90,
-    availability: false
+    availability: false,
+      imageUrl:""
   };
 
     book5: Book = {
@@ -61,7 +65,8 @@ export class AppComponent {
     publishedYear: 2022,
     isbn: 5555,
     price: 200,
-    availability: true
+    availability: true,
+      imageUrl:""
   };
 
     book6: Book = {
@@ -71,7 +76,8 @@ export class AppComponent {
     publishedYear: 2017,
     isbn: 6666,
     price: 80,
-    availability: true
+    availability: true,
+      imageUrl:""
   };
 
     bookList:Book[]=[this.book1,this.book2,this.book3,this.book4,this.book5,this.book6];

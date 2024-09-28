@@ -1,14 +1,15 @@
-import { Component} from '@angular/core';
+import {Component, ViewEncapsulation} from '@angular/core';
 import {Book} from "../models/book";
 import {BookListItemComponent} from "../book-list-item/book-list-item.component";
-import {CommonModule} from "@angular/common";
+import {CommonModule, NgOptimizedImage} from "@angular/common";
 
 @Component({
   selector: 'app-book-list',
   standalone: true,
-  imports: [CommonModule,BookListItemComponent],// Import the child component
+  imports: [CommonModule, BookListItemComponent, NgOptimizedImage],// Import the child component
   templateUrl: './book-list.component.html',
-  styleUrl: './book-list.component.css'
+  styleUrl: './book-list.component.css',
+  encapsulation: ViewEncapsulation.None
 })
 export class BookListComponent {
 
@@ -22,7 +23,8 @@ export class BookListComponent {
         publishedYear: 2020,
         isbn: 31111,
         price: 100,
-        availability: true
+        availability: true,
+        imageUrl:'https://cdn-icons-png.freepik.com/512/11117/11117192.png'
       },
 
       {
@@ -32,7 +34,8 @@ export class BookListComponent {
         publishedYear: 2019,
         isbn: 32222,
         price: 150,
-        availability: false
+        availability: false,
+        imageUrl:'https://images.freeimages.com/image/previews/1ac/pink-book-icon-png-5694164.png'
       },
 
        {
@@ -42,7 +45,8 @@ export class BookListComponent {
         publishedYear: 2021,
         isbn: 33333,
         price: 120,
-        availability: true
+        availability: true,
+         imageUrl:'https://cdn-icons-png.flaticon.com/512/201/201556.png'
       },
 
       {
@@ -52,7 +56,8 @@ export class BookListComponent {
         publishedYear: 2018,
         isbn: 34444,
         price: 90,
-        availability: false
+        availability: false,
+        imageUrl:'https://cdn-icons-png.flaticon.com/512/2232/2232688.png'
       },
   ];
 
