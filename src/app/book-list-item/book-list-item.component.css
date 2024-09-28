@@ -5,3 +5,9 @@
   margin:auto;
   margin-top: 2em;
 }
+.even{
+  background-color: aliceblue;
+}
+.odd{
+  background-color: azure;
+}

@@ -1,10 +1,6 @@
 
 
 
-
-
-
-<app-book-list-item [contentItem]="book1"></app-book-list-item>
-<app-book-list-item [contentItem]="book2"></app-book-list-item>
-<app-book-list-item [contentItem]="book3"></app-book-list-item>
-<app-book-list-item [contentItem]="book4"></app-book-list-item>
+<div *ngFor="let book of bookList3; let i=index">
+  <app-book-list-item [contentItem]="book" [isEven]="i%2===0"></app-book-list-item>
+</div>

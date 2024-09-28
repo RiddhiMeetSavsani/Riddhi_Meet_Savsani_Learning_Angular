@@ -11,4 +11,5 @@ import {CommonModule} from "@angular/common";
 })
 export class BookListItemComponent {
   @Input() contentItem!: Book;  // The input property that accepts a Book object
+  @Input() isEven?:boolean;
 }
