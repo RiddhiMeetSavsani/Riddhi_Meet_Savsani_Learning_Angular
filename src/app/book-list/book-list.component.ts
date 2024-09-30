@@ -24,7 +24,7 @@ export class BookListComponent {
         isbn: 31111,
         price: 100,
         availability: true,
-        imageUrl:'https://cdn-icons-png.freepik.com/512/11117/11117192.png'
+        imageUrl:'../assets/pngimg1.png'
       },
 
       {
