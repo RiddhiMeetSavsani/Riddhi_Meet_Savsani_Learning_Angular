@@ -14,7 +14,7 @@ import {BookListItemComponent} from "./book-list-item/book-list-item.component";
 })
 export class AppComponent {
   title = 'Riddhi-Meet-Savsani-Learning-Angular';
-    book1: Book = {
+    /**book1: Book = {
     title: 'Book1',
     author: "Author1",
     genre: "Genre1",
@@ -22,7 +22,7 @@ export class AppComponent {
     isbn: 1111,
     price: 100,
     availability: true,
-      imageUrl:""
+
   };
 
     book2: Book = {
@@ -33,7 +33,7 @@ export class AppComponent {
     isbn: 2222,
     price: 150,
     availability: false,
-      imageUrl:""
+
   };
 
     book3: Book = {
@@ -44,7 +44,7 @@ export class AppComponent {
     isbn: 3333,
     price: 120,
     availability: true,
-      imageUrl:""
+
   };
 
     book4: Book = {
@@ -55,7 +55,7 @@ export class AppComponent {
     isbn: 4444,
     price: 90,
     availability: false,
-      imageUrl:""
+
   };
 
     book5: Book = {
@@ -66,7 +66,7 @@ export class AppComponent {
     isbn: 5555,
     price: 200,
     availability: true,
-      imageUrl:""
+
   };
 
     book6: Book = {
@@ -77,10 +77,10 @@ export class AppComponent {
     isbn: 6666,
     price: 80,
     availability: true,
-      imageUrl:""
+
   };
 
     bookList:Book[]=[this.book1,this.book2,this.book3,this.book4,this.book5,this.book6];
-
+**/
 }
 
