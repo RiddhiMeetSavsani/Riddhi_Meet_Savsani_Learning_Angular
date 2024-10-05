@@ -2,6 +2,7 @@ import {Component, ViewEncapsulation} from '@angular/core';
 import {Book} from "../models/book";
 import {BookListItemComponent} from "../book-list-item/book-list-item.component";
 import {CommonModule, NgOptimizedImage} from "@angular/common";
+import { BookService } from '../services/book.service';
 
 @Component({
   selector: 'app-book-list',
@@ -12,13 +13,18 @@ import {CommonModule, NgOptimizedImage} from "@angular/common";
   encapsulation: ViewEncapsulation.None
 })
 export class BookListComponent {
+  bookList: Book[] = [];
 
   //For Assignment-3 creating new array
 
+  constructor(private bookService: BookService) {}
 
-
-  constructor() {
-    // Log the bookList3 to the console
-    //console.log(this.bookList3);
+  ngOnInit(): void {
+    this.bookService.getBooksObservable().subscribe({
+      next: (data: Book[]) => this.bookList = data,
+      error:err => console.error("Error fetching Books",
+        err),
+      complete:() => console.log("Book data fetch complete!")
+    });
   }
 }
