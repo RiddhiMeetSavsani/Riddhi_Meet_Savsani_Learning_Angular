@@ -19,6 +19,7 @@ table{
 }
 td{
   border: 1px solid gray;
+  text-align: center;
 }
 .filter td:first-of-type , .header:nth-of-type(2) td:first-of-type{
   width: 60%;
@@ -42,3 +43,4 @@ td{
 .all, .filter{
   color: darkgoldenrod;
 }
+

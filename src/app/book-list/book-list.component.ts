@@ -1,4 +1,4 @@
-import {Component, ViewEncapsulation} from '@angular/core';
+import {Component, Input, ViewEncapsulation} from '@angular/core';
 import {Book} from "../models/book";
 import {BookListItemComponent} from "../book-list-item/book-list-item.component";
 import {CommonModule, NgOptimizedImage} from "@angular/common";
@@ -26,5 +26,10 @@ export class BookListComponent {
         err),
       complete:() => console.log("Book data fetch complete!")
     });
+  }
+
+  @Input() onBookSelect!: (book: Book) => void;
+  onBookClick(book: Book) {
+    this.onBookSelect(book);
   }
 }

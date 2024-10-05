@@ -3,6 +3,7 @@ import { Book } from "../models/book";
 import { CommonModule } from "@angular/common";
 import { NgOptimizedImage } from '@angular/common';
 
+
 @Component({
   selector: 'app-book-list-item',
   standalone: true,
@@ -13,4 +14,5 @@ import { NgOptimizedImage } from '@angular/common';
 export class BookListItemComponent {
   @Input() contentItem?: Book;
   @Input() isEven?: boolean;
+
 }

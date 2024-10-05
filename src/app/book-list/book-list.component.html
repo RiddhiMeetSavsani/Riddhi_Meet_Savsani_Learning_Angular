@@ -8,5 +8,5 @@
 -->
 
 <div *ngFor="let book of bookList">
-  <app-book-list-item [contentItem]="book"></app-book-list-item>
+  <app-book-list-item [contentItem]="book" (click)="onBookClick(book)"></app-book-list-item>
 </div>

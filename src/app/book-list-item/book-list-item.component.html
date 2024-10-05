@@ -10,13 +10,13 @@
     <p *ngIf="!contentItem?.availability">Out of Stock</p>
   </td>
   <td>
-    <!--<img
-      [ngSrc]="contentItem.imageUrl"
-      alt="{{ contentItem.title }}"
+    <img
+      [ngSrc]="contentItem?.imageUrl || '../assets/pngimg1.png'"
+      alt="{{ contentItem?.title }}"
       width="212"
       height="212"
       priority
-    />-->
+    />
   </td>
   </tr>
 </table>

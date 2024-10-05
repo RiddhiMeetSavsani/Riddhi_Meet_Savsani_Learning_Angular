@@ -65,7 +65,7 @@
   <h2>Selected Book</h2>
   <app-book-list-item [contentItem]="book"></app-book-list-item>
   <h2>Book List</h2>
-  <app-book-list></app-book-list>
+<app-book-list [onBookSelect]="onBookSelected.bind(this)"></app-book-list>
 
 </body>
 </html>

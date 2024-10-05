@@ -97,10 +97,14 @@ export class AppComponent {
           console.error('Book not found');
         }
       },
-      error:err => console.error("Error fetching Books",
-        err),
+      error:err => console.error("Error fetching Books", err),
       complete:() => console.log("Book data fetch complete!")
     });
   }
+
+  onBookSelected(selectedBook: Book) {
+    this.book = selectedBook; // Update the selected book
+  }
+
 }
 
