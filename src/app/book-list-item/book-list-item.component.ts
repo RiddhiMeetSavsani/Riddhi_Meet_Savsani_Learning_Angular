@@ -11,6 +11,6 @@ import { NgOptimizedImage } from '@angular/common';
   styleUrls: ['./book-list-item.component.css']
 })
 export class BookListItemComponent {
-  @Input() contentItem!: Book;
+  @Input() contentItem?: Book;
   @Input() isEven?: boolean;
 }

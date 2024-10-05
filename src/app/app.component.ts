@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common'; // Import CommonModule
 import {Book} from './models/book';
 import {BookListComponent} from "./book-list/book-list.component";
 import {BookListItemComponent} from "./book-list-item/book-list-item.component";
+import { BookService } from './services/book.service';
 
 @Component({
   selector: 'app-root',
@@ -82,5 +83,24 @@ export class AppComponent {
 
     bookList:Book[]=[this.book1,this.book2,this.book3,this.book4,this.book5,this.book6];
 **/
+
+    book?: Book;
+
+  constructor(private bookService: BookService) {}
+
+  ngOnInit(): void {
+    this.bookService.getBookById(31111).subscribe({
+      next: (data: Book | undefined) => {
+        if (data) {
+          this.book = data;
+        } else {
+          console.error('Book not found');
+        }
+      },
+      error:err => console.error("Error fetching Books",
+        err),
+      complete:() => console.log("Book data fetch complete!")
+    });
+  }
 }
 

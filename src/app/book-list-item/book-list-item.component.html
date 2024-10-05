@@ -2,12 +2,12 @@
 <table>
   <tr>
   <td>
-    <h2>{{ contentItem.title }}</h2>
-    <p>ISBN: {{ contentItem.isbn }}</p>
-    <p>Price: ${{ contentItem.price }}</p>
-    <p>Published Year: {{ contentItem.publishedYear }}</p>
-    <p *ngIf="contentItem.availability">Available</p>
-    <p *ngIf="!contentItem.availability">Out of Stock</p>
+    <h2>{{ contentItem?.title }}</h2>
+    <p>ISBN: {{ contentItem?.isbn }}</p>
+    <p>Price: ${{ contentItem?.price }}</p>
+    <p>Published Year: {{ contentItem?.publishedYear }}</p>
+    <p *ngIf="contentItem?.availability">Available</p>
+    <p *ngIf="!contentItem?.availability">Out of Stock</p>
   </td>
   <td>
     <!--<img
