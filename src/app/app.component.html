@@ -1,72 +1,19 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Document</title>
-</head>
-<body>
 
-<!--
-  <h3>All Data Related to Books</h3>
-  <table class="header">
-    <tr>
-      <td >Title</td>
-      <td>Author</td>
-      <td>Genre</td>
-      <td>Published Year</td>
-      <td>ISBN Number</td>
-      <td>Availability</td>
-      <td>Price</td>
-    </tr>
-  </table>
-    <div *ngFor="let book of bookList">
-      <table class="all">
-        <tr>
-          <td >{{book.title}}</td>
-          <td>{{ book.author }}</td>
-          <td>{{ book.genre }}</td>
-          <td>{{ book.publishedYear }}</td>
-          <td>{{book.isbn}}</td>
-          <td>{{book.availability}}</td>
-          <td>{{book.price}}</td>
-        </tr>
+<!-- Future Nav bar-->
 
-      </table>
-    </div>
-  <h3>Available Books With Title and Price</h3>
-  <table class="header">
-    <tr>
-      <td>
-        Title
-      </td>
-      <td>
-        Price
-      </td>
-    </tr>
-  </table>
-    <div *ngFor="let book of bookList">
-      <div *ngIf="book.availability">
-        <table class="filter">
-          <tr>
-            <td >
-              {{book.title}}
-            </td>
-            <td >
-              {{book.price}}
-            </td>
-          </tr>
-        </table>
-      </div>
-    </div>
-  --->
-  <!-- Assignment-3 ---->
-  <h1 style="color: indigo">Assignment-4</h1>
-  <h2>Selected Book</h2>
-  <app-book-list-item [contentItem]="book"></app-book-list-item>
-  <h2>Book List</h2>
-<app-book-list [onBookSelect]="onBookSelected.bind(this)"></app-book-list>
+<div class="app-container">
+  <h1>Assignment-5</h1>
 
-</body>
-</html>
+  <div class="nav-bar">
+    <nav>
+      <a routerLink="/books" routerLinkActive="active">Book List(Home)</a>
+      <br/><br/>
+      <a routerLink="/modify-book" routerLinkActive="active">Modify Book List</a>
+    </nav>
+  </div>
+
+
+  <!--router outlet to display routed components -->
+  <router-outlet></router-outlet>
+</div>
 

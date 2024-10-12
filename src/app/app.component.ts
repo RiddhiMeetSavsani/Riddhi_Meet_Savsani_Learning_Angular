@@ -5,11 +5,12 @@ import {Book} from './models/book';
 import {BookListComponent} from "./book-list/book-list.component";
 import {BookListItemComponent} from "./book-list-item/book-list-item.component";
 import { BookService } from './services/book.service';
+import {RouterModule} from "@angular/router";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CommonModule,BookListComponent, BookListItemComponent],
+  imports: [RouterModule, RouterOutlet, CommonModule,BookListComponent, BookListItemComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
