@@ -1,3 +1,4 @@
+
 <!-- book-list.component.html -->
 
 
@@ -7,6 +8,28 @@
 </div>
 -->
 
-<div *ngFor="let book of bookList">
-  <app-book-list-item [contentItem]="book" (click)="onBookClick(book)"></app-book-list-item>
+<div>
+
+  <table>
+    <tr *ngFor="let book of bookList" [routerLink]="['/books', book.isbn]">
+      <td>
+        <h2>{{ book.title }}</h2>
+        <p>ISBN: {{ book?.isbn }}</p>
+        <p>Price: ${{ book?.price }}</p>
+        <p>Published Year: {{ book?.publishedYear }}</p>
+        <p *ngIf="book?.availability">Available</p>
+        <p *ngIf="!book?.availability">Out of Stock</p>
+      </td>
+      <td>
+        <img
+          [ngSrc]="book?.imageUrl || '../assets/pngimg1.png'"
+          alt="{{ book?.title }}"
+          width="212"
+          height="212"
+          priority
+        />
+      </td>
+    </tr>
+  </table>
+
 </div>
