@@ -13,4 +13,8 @@
 }
 table{
   margin: auto;
+
+}
+td{
+ width: 50%;
 }
