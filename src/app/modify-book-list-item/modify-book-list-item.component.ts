@@ -18,22 +18,22 @@ export class ModifyBookListItemComponent implements OnInit{
   book: Book | undefined;
 
   constructor(
-    private fb:FormBuilder,
+    private fb: FormBuilder,
     private route: ActivatedRoute,
-    private bookService : BookService,
+    private bookService: BookService,
     private router: Router
   ) {
-    this.bookForm=this.fb.group({
-      title: ['', Validators.required],
-      author: ['', Validators.required],
-      isbn: ['', Validators.required],
+    this.bookForm = this.fb.group({
+      title: ['', [Validators.required, Validators.pattern('^[^#!?]*$')]], // No special chars
+      isbn: ['', [Validators.required, Validators.pattern('^[0-9]+$')]], // Only digits
       genre: [''],
-      availability:[true],
-      price: ['', Validators.required],
-      publishedYear:[''],
-      imageUrl:['../assets/pngimg3.png']
+      availability: [true],
+      price: ['', [Validators.required, Validators.min(0)]], // Positive number
+      publishedYear: ['', [Validators.required, Validators.max(2030)]], // Require year and max 2030
+      imageUrl: ['../assets/pngimg3.png']
     });
   }
+
 
   ngOnInit() :void{
     const isbn = this.route.snapshot.paramMap.get('isbn');
@@ -48,20 +48,38 @@ export class ModifyBookListItemComponent implements OnInit{
     }
   }
 
-  onSubmit():void{
-    const book: Book = this.bookForm.value;
+  onSubmit(): void {
+    if (this.bookForm.valid) {
+      const book: Book = this.bookForm.value;
 
-    if(this.book?.isbn){
-      this.bookService.updateBook(book);
-    }else{
-      const newIsbn = this.bookService.generateNewId();
-      book.isbn=newIsbn;
-      this.bookService.addBook(book);
+      if (this.book?.isbn) {
+        this.bookService.updateBook(book);
+      } else {
+        const newIsbn = this.bookService.generateNewId();
+        book.isbn = newIsbn;
+        this.bookService.addBook(book);
+      }
+
+      this.router.navigate(['/books']);
+    } else {
+      console.error('Form is invalid', this.bookForm.errors);
     }
-
-    this.router.navigate(['/books']);
-
   }
+
+  // onSubmit():void{
+  //   const book: Book = this.bookForm.value;
+  //
+  //   if(this.book?.isbn){
+  //     this.bookService.updateBook(book);
+  //   }else{
+  //     const newIsbn = this.bookService.generateNewId();
+  //     book.isbn=newIsbn;
+  //     this.bookService.addBook(book);
+  //   }
+  //
+  //   this.router.navigate(['/books']);
+  //
+  // }
 
   // onSubmit(): void {
   //   const book: Book = this.bookForm.value;
