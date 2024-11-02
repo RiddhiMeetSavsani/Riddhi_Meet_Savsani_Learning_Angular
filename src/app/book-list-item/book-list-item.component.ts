@@ -42,8 +42,9 @@ export class BookListItemComponent {
 
       });
 
-
     });
   }
+
+
 
 }

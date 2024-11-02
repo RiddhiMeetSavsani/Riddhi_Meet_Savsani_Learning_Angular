@@ -11,6 +11,7 @@ const routes: Routes = [
   {path:'', redirectTo: '/books', pathMatch: 'full'}, //default route
   { path: 'books', component: BookListComponent },
   { path: 'books/:isbn', component: BookListItemComponent },
+  {path: 'modify-book/:isbn', component: ModifyBookListItemComponent},
   {path: 'modify-book', component: ModifyBookListItemComponent},
   {path: '**', component: PageNotFoundComponent}
 ];

@@ -1,1 +1,41 @@
-<p>modify-book-list-item works!</p>
+<!-- modify-book-list-item.component.html -->
+<br/><br/>
+
+<form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+  <table>
+
+    <tr>
+      <td><label for="isbn">ISBN</label></td>
+      <td><input type="number" id="isbn" formControlName="isbn" /></td>
+    </tr>
+    <tr>
+      <td><label for="title">Title</label></td>
+      <td><input type="text" id="title" formControlName="title" /></td>
+    </tr>
+
+    <tr>
+      <td><label for="availability">Available</label></td>
+      <td><input type="checkbox" id="availability" formControlName="availability" /></td>
+    </tr>
+    <tr>
+      <td><label for="price">Price</label></td>
+      <td><input type="number" id="price" formControlName="price" /></td>
+    </tr>
+    <tr>
+      <td><label for="publishedYear">Published Year</label></td>
+      <td><input type="number" id="publishedYear" formControlName="publishedYear" /></td>
+    </tr>
+    <tr>
+      <td><label for="imageUrl">Image URL(change only from 1,2,3,4)</label></td>
+
+      <td><input type="text" id="imageUrl" formControlName="imageUrl" /></td>
+    </tr>
+  </table>
+
+  <br/><br/>
+
+  <div class="form-buttons">
+    <button type="submit">Add(Update) Book</button>
+    <button type="button" (click)="navigateToBookList()">Back to List</button>
+  </div>
+</form>

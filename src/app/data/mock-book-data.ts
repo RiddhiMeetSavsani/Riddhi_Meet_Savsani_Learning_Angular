@@ -21,7 +21,7 @@ export const bookList3:Book[]=[
     isbn: 32222,
     price: 150,
     availability: false,
-    imageUrl:"../../../../../../assets/pngimg2.png"
+    imageUrl:"../assets/pngimg2.png"
   },
 
   {

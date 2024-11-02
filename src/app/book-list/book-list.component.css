@@ -19,3 +19,6 @@ table{
 td:first-of-type{
   width: 60%;
 }
+button{
+  margin: 1em;
+}

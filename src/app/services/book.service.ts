@@ -22,6 +22,7 @@ export class BookService {
   }
 
   addBook(newBook: Book): Observable<Book> {
+    console.log("Adding new book:", newBook);
     this.books.push(newBook);
     return of(newBook);
   }
@@ -38,6 +39,11 @@ export class BookService {
   deleteBook(isbn: number): void {
     this.books = this.books.filter(book=> book.isbn!==isbn);
   }
+
+  // deleteBook(isbn: number): Observable<void> {
+  //   this.books = this.books.filter(book => book.isbn !== isbn);
+  //   return of();
+  // }
 
   generateNewId(): number{
     return this.books.length > 0 ? Math.max(...this.books.map(book=>book.isbn))+ 1 : 1;

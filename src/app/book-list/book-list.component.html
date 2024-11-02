@@ -1,17 +1,6 @@
-
-<!-- book-list.component.html -->
-
-
-
-<!--<div *ngFor="let book of bookList3; let i = index">
-  <app-book-list-item [contentItem]="book" [isEven]="i % 2 === 0"></app-book-list-item>
-</div>
--->
-
 <div>
-
   <table>
-    <tr *ngFor="let book of bookList" [routerLink]="['/books', book.isbn]">
+    <tr *ngFor="let book of bookList" (click)="selectBook(book)">
       <td>
         <h2>{{ book.title }}</h2>
         <p>ISBN: {{ book?.isbn }}</p>
@@ -29,7 +18,10 @@
           priority
         />
       </td>
+      <td>
+        <button (click)="editBook(book.isbn)">Edit</button>
+        <button (click)="onDelete(book.isbn)">Delete</button>
+      </td>
     </tr>
   </table>
-
 </div>
