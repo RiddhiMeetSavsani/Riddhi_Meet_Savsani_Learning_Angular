@@ -10,6 +10,8 @@ export class BookService {
 
   private books: Book[] = bookList3;
 
+  constructor() { }
+
   getBooksObservable() : Observable<Book[]> {
     return of(this.books);
   }
@@ -19,26 +21,26 @@ export class BookService {
     return of(book);
   }
 
-  addBook(newBook: Book): Observable<Book[]> {
+  addBook(newBook: Book): Observable<Book> {
     this.books.push(newBook);
-    return of(this.books);
+    return of(newBook);
   }
 
-  updateBook(updatedBook: Book): Observable<Book[]> {
+  updateBook(updatedBook: Book): Observable<Book | undefined> {
     const index = this.books.findIndex(book => book.isbn === updatedBook.isbn);
-    if (index !== -1) {
+    if (index > -1) {
       this.books[index] = updatedBook;
-    }
-    return of(this.books);
-  }
-
-  deleteBook(isbn: number): Observable<Book | undefined> {
-    const index = this.books.findIndex(book => book.isbn === isbn);
-    if (index !== -1) {
-      const removedBook = this.books .splice(index, 1)[0];
-      return of(removedBook);
+      return of(updatedBook);
     }
     return of(undefined);
   }
-  constructor() { }
+
+  deleteBook(isbn: number): void {
+    this.books = this.books.filter(book=> book.isbn!==isbn);
+  }
+
+  generateNewId(): number{
+    return this.books.length > 0 ? Math.max(...this.books.map(book=>book.isbn))+ 1 : 1;
+  }
+
 }
