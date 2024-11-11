@@ -1,52 +1,54 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import {catchError, Observable, of, throwError} from 'rxjs';
 import { Book } from '../models/book';
 import {bookList3} from "../data/mock-book-data";
+import {HttpClient, HttpErrorResponse} from "@angular/common/http";
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class BookService {
 
+  private apiUrl = 'api/books'; //url to web api
   private books: Book[] = bookList3;
 
-  constructor() { }
+  constructor(private http: HttpClient) { }//DI http
 
-  getBooksObservable() : Observable<Book[]> {
-    return of(this.books);
+  //CRUD operations using HTTP Requests
+  //All operations we need are:
+  // Get, post, put, delete
+  getBooksObservable(): Observable<Book[]> {
+    return this.http.get<Book[]>(this.apiUrl).pipe(catchError(this.handleError));
   }
 
-  getBookById(isbn: number): Observable<Book | undefined> {
-    const book = this.books.find(book => book.isbn === isbn);
-    return of(book);
+  getBookById(isbn: number): Observable<Book> {
+    return this.http.get<Book>(`${this.apiUrl}/${isbn}`).pipe(catchError(this.handleError)); //return a single student
   }
 
   addBook(newBook: Book): Observable<Book> {
-    console.log("Adding new book:", newBook);
-    this.books.push(newBook);
-    return of(newBook);
+    newBook.isbn = this.generateNewId();
+    return this.http.post<Book>(this.apiUrl, newBook).pipe(catchError(this.handleError));
   }
+
 
   updateBook(updatedBook: Book): Observable<Book | undefined> {
-    const index = this.books.findIndex(book => book.isbn === updatedBook.isbn);
-    if (index > -1) {
-      this.books[index] = updatedBook;
-      return of(updatedBook);
-    }
-    return of(undefined);
+    const url = `${this.apiUrl}/${updatedBook.isbn}`;
+    return this.http.put<Book>(url, updatedBook).pipe(catchError(this.handleError));
   }
 
-  deleteBook(isbn: number): void {
-    this.books = this.books.filter(book=> book.isbn!==isbn);
+  deleteBook(isbn: number): Observable<{}> {
+    const url = `${this.apiUrl}/${isbn}`;
+    return this.http.delete(url).pipe(catchError(this.handleError));
   }
-
-  // deleteBook(isbn: number): Observable<void> {
-  //   this.books = this.books.filter(book => book.isbn !== isbn);
-  //   return of();
-  // }
 
   generateNewId(): number{
     return this.books.length > 0 ? Math.max(...this.books.map(book=>book.isbn))+ 1 : 1;
+  }
+
+  private handleError(error: HttpErrorResponse) {
+    console.error('API error:', error);
+    return throwError(() => new Error('Server error, please try again.'));
   }
 
 }
