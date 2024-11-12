@@ -10,11 +10,12 @@ import { Router, RouterLink } from "@angular/router";
   standalone: true,
   imports: [CommonModule, BookListItemComponent, NgOptimizedImage, RouterLink], // Import the child component
   templateUrl:'./book-list.component.html',
-  styleUrls: ['./book-list.component.css'], // Correct the styleUrls property name
+  styleUrls: ['./book-list.component.css'],
   encapsulation: ViewEncapsulation.None
 })
 export class BookListComponent {
   bookList:Book[]=[];
+  error: string | null = null;
 
 
   constructor (private bookService: BookService, private router: Router){

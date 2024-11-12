@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/
 import {Book} from "../models/book";
 import {ActivatedRoute, Router} from "@angular/router";
 import {BookService} from "../services/book.service";
+import {NgIf} from "@angular/common";
 
 @Component({
   selector: 'app-modify-book-list-item',
@@ -16,6 +17,7 @@ import {BookService} from "../services/book.service";
 export class ModifyBookListItemComponent implements OnInit{
   bookForm : FormGroup;
   book: Book | undefined;
+  error: string | null = null;
 
   constructor(
     private fb: FormBuilder,
@@ -24,25 +26,29 @@ export class ModifyBookListItemComponent implements OnInit{
     private router: Router
   ) {
     this.bookForm = this.fb.group({
-      title: ['', [Validators.required, Validators.pattern('^[^#!?]*$')]], // No special chars
-      isbn: ['', [Validators.required, Validators.pattern('^[0-9]+$')]], // Only digits
+      title: [''],
+      isbn: ['', Validators.required],
       genre: [''],
       availability: [true],
-      price: ['', [Validators.required, Validators.min(0)]], // Positive number
-      publishedYear: ['', [Validators.required, Validators.max(2030)]], // Require year and max 2030
+      price: [''],
+      publishedYear: [''],
       imageUrl: ['../assets/pngimg3.png']
     });
   }
 
 
-  ngOnInit() :void{
-    const isbn = this.route.snapshot.paramMap.get('isbn');
-    if(isbn){
-      this.bookService.getBookById(+isbn).subscribe(book=>{
-        if(book){
-          this.book=book;
-
-          this.bookForm.patchValue(book);
+  ngOnInit(): void {
+    const isbn = Number(this.route.snapshot.paramMap.get('isbn'));
+    if (isbn) {
+      this.bookService.getBookById(isbn).subscribe({
+        next: book => {
+          if (book) {
+            this.bookForm.patchValue(book);
+          }
+        },
+        error: err => {
+          this.error = 'Error fetching book';
+          console.error('Error fetching book:', err);
         }
       });
     }
@@ -50,21 +56,30 @@ export class ModifyBookListItemComponent implements OnInit{
 
   onSubmit(): void {
     if (this.bookForm.valid) {
-      const book: Book = this.bookForm.value;
+      const book: Book = { ...this.bookForm.value };
 
-      if (this.book?.isbn) {
-        this.bookService.updateBook(book);
+      if (book.isbn) {
+        this.bookService.updateBook(book).subscribe(() => this.router.navigate(['books']));
       } else {
-        const newIsbn = this.bookService.generateNewId();
-        book.isbn = newIsbn;
-        this.bookService.addBook(book);
+        this.bookService.addBook(book).subscribe(() => this.router.navigate(['/books']));
       }
-
-      this.router.navigate(['/books']);
-    } else {
-      console.error('Form is invalid', this.bookForm.errors);
     }
   }
+
+
+  // onSubmit(): void {
+  //   if (this.bookForm.valid) {
+  //     const book: Book = this.bookForm.value;
+  //
+  //     if (book.isbn) {
+  //       this.bookService.updateBook(book).subscribe(() => this.router.navigate(['books']));
+  //     } else {
+  //       const newIsbn = this.bookService.generateNewId();
+  //       book.isbn = newIsbn;
+  //       this.bookService.addBook(book).subscribe(() => this.router.navigate(['/books']));
+  //     }
+  //   }
+  // }
 
   // onSubmit():void{
   //   const book: Book = this.bookForm.value;
