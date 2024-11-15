@@ -6,5 +6,6 @@ export interface Book {
   isbn: number;
   price: number;
   availability: boolean;
-  imageUrl?:string;
+  imageUrl?: string;
+  publishedDate: Date;
 }

@@ -3,10 +3,10 @@
     <tr>
       <td>
 
-        <h2>{{ book.title }}</h2>
+        <h2>{{ book.title |uppercase}}</h2>
         <p>ISBN: {{ book.isbn }}</p>
-        <p>Price: ${{ book.price }}</p>
-        <p>Published Year: {{ book.publishedYear }}</p>
+        <p>Price: {{ book.price |currency :'CAD' : "symbol":'1.2-2' }}</p>
+        <p>Published Date: {{ book.publishedDate |date :'yyyy-MM-dd' }}</p>
         <p *ngIf="book.availability">Available</p>
         <p *ngIf="!book.availability">Out of Stock</p>
 

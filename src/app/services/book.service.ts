@@ -14,6 +14,7 @@ export class BookService {
 
   getBooksObservable() : Observable<Book[]> {
     return of(this.books);
+    console.log(this.books);
   }
 
   getBookById(isbn: number): Observable<Book | undefined> {

@@ -3,12 +3,14 @@ import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/
 import {Book} from "../models/book";
 import {ActivatedRoute, Router} from "@angular/router";
 import {BookService} from "../services/book.service";
+import {UpperCasePipe} from "@angular/common";
 
 @Component({
   selector: 'app-modify-book-list-item',
   standalone: true,
   imports: [
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    UpperCasePipe
   ],
   templateUrl: './modify-book-list-item.component.html',
   styleUrl: './modify-book-list-item.component.css'
@@ -24,12 +26,12 @@ export class ModifyBookListItemComponent implements OnInit{
     private router: Router
   ) {
     this.bookForm = this.fb.group({
-      title: ['', [Validators.required, Validators.pattern('^[^#!?]*$')]], // No special chars
-      isbn: ['', [Validators.required, Validators.pattern('^[0-9]+$')]], // Only digits
+      title: [''], // No special chars
+      isbn: ['', Validators.required],
       genre: [''],
       availability: [true],
-      price: ['', [Validators.required, Validators.min(0)]], // Positive number
-      publishedYear: ['', [Validators.required, Validators.max(2030)]], // Require year and max 2030
+      price: ['' ],
+      publishedDate: [new Date()],
       imageUrl: ['../assets/pngimg3.png']
     });
   }
@@ -123,4 +125,5 @@ export class ModifyBookListItemComponent implements OnInit{
   navigateToBookList():void{
     this.router.navigate(['/books']);
   }
+
 }

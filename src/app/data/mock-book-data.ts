@@ -8,9 +8,10 @@ export const bookList3:Book[]=[
     genre: "Genre31",
     publishedYear: 2020,
     isbn: 31111,
-    price: 100,
+    price: 100.89545,
     availability: true,
-    imageUrl:"../assets/pngimg1.png"
+    imageUrl:"../assets/pngimg1.png",
+    publishedDate : new Date(2020, 5, 15)
   },
 
   {
@@ -19,9 +20,10 @@ export const bookList3:Book[]=[
     genre: "Genre32",
     publishedYear: 2019,
     isbn: 32222,
-    price: 150,
+    price: 150.3443,
     availability: false,
-    imageUrl:"../assets/pngimg2.png"
+    imageUrl:"../assets/pngimg2.png",
+    publishedDate:new Date(2019, 10, 22)
   },
 
   {
@@ -30,9 +32,10 @@ export const bookList3:Book[]=[
     genre: "Genre33",
     publishedYear: 2021,
     isbn: 33333,
-    price: 120,
+    price: 120.1234,
     availability: true,
-    imageUrl:"../assets/pngimg3.png"
+    imageUrl:"../assets/pngimg3.png",
+    publishedDate: new Date(2021, 2, 10)
   },
 
   {
@@ -41,8 +44,9 @@ export const bookList3:Book[]=[
     genre: "Genre34",
     publishedYear: 2018,
     isbn: 34444,
-    price: 90,
+    price: 90.34343,
     availability: false,
-    imageUrl:"../assets/pngimg4.png"
+    imageUrl:"../assets/pngimg4.png",
+    publishedDate: new Date(2018, 7, 30)
   },
 ];
