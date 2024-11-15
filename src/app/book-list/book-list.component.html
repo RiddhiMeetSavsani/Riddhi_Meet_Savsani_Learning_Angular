@@ -6,7 +6,7 @@
 
     <tr *ngFor="let book of bookList" [routerLink]="['/books',book.isbn ]" (click)="selectBook(book)">
       <td>
-        <h2>{{ book.title |uppercase}}</h2>
+        <h2>{{ book | bookDescription |uppercase}}</h2>
         <p>ISBN: {{ book?.isbn }}</p>
         <p>Price: {{ book?.price |currency :'CAD' : "symbol":'1.2-2' }}</p>
         <p>Published Date: {{ book?.publishedDate |date :'yyyy-MM-dd'}}</p>
