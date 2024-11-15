@@ -26,7 +26,7 @@ export class ModifyBookListItemComponent implements OnInit{
     private router: Router
   ) {
     this.bookForm = this.fb.group({
-      title: [''], // No special chars
+      title: [''],
       isbn: ['', Validators.required],
       genre: [''],
       availability: [true],

@@ -3,21 +3,21 @@ import {Book} from "../models/book";
 
 export const bookList3:Book[]=[
   {
-    title: 'Book31',
-    author: "Author31",
-    genre: "Genre31",
+    title: 'Dune',
+    author: "Frank Herbert",
+    genre: "Sci-Fi",
     publishedYear: 2020,
     isbn: 31111,
-    price: 100.89545,
+    price: 9.99,
     availability: true,
     imageUrl:"../assets/pngimg1.png",
     publishedDate : new Date(2020, 5, 15)
   },
 
   {
-    title: 'Book32',
-    author: "Author32",
-    genre: "Genre32",
+    title: '1984',
+    author: "George Orwell",
+    genre: "Dystopia",
     publishedYear: 2019,
     isbn: 32222,
     price: 150.3443,
@@ -27,9 +27,9 @@ export const bookList3:Book[]=[
   },
 
   {
-    title: 'Book33',
-    author: "Author33",
-    genre: "Genre33",
+    title: 'It',
+    author: "Stephen King",
+    genre: "Horror",
     publishedYear: 2021,
     isbn: 33333,
     price: 120.1234,
@@ -39,9 +39,9 @@ export const bookList3:Book[]=[
   },
 
   {
-    title: 'Book34',
-    author: "Author34",
-    genre: "Genre34",
+    title: 'Emma',
+    author: "Jane Austen",
+    genre: "Romance",
     publishedYear: 2018,
     isbn: 34444,
     price: 90.34343,

@@ -68,8 +68,10 @@ export class BookListComponent {
 //     deleteBook(isbn: number): void {
 //   this.books = this.books.filter(book=> book.isbn!==isbn);
 // }
-  editBook(isbn: number): void {
+  editBook(isbn: number, event : MouseEvent): void {
+    event.stopPropagation();
     this.router.navigate(['/modify-book', isbn]);
   }
 
+  protected readonly onclick = onclick;
 }

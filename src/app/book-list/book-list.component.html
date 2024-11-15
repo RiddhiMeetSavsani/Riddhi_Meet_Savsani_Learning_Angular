@@ -23,7 +23,7 @@
         />
       </td>
       <td>
-        <button (click)="editBook(book.isbn)">Edit</button>
+        <button (click)="editBook(book.isbn, $event)">Edit</button>
         <button (click)="onDelete(book.isbn)">Delete</button>
       </td>
     </tr>
