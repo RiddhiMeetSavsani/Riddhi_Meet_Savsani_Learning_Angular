@@ -10,8 +10,9 @@
         <p>ISBN: {{ book?.isbn }}</p>
         <p>Price: {{ book?.price |currency :'CAD' : "symbol":'1.2-2' }}</p>
         <p>Published Date: {{ book?.publishedDate |date :'yyyy-MM-dd'}}</p>
-        <p *ngIf="book?.availability">Available</p>
-        <p *ngIf="!book?.availability">Out of Stock</p>
+        <p [ngStyle]="{ 'color': (book | availabilityStyle).color, 'font-weight': (book | availabilityStyle).fontWeight }">
+          {{ (book | availabilityStyle).text }}
+        </p>
       </td>
       <td>
         <img

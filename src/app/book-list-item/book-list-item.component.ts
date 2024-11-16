@@ -6,11 +6,12 @@ import { NgOptimizedImage } from '@angular/common';
 import {BookService} from "../services/book.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {BookDescriptionPipe} from "../pipes/book-description.pipe";
+import {AvailabilityStylePipe} from "../pipes/availability-style.pipe";
 
 @Component({
   selector: 'app-book-list-item',
   standalone: true,
-  imports: [CommonModule, NgOptimizedImage, BookDescriptionPipe],
+  imports: [CommonModule, NgOptimizedImage, BookDescriptionPipe, AvailabilityStylePipe],
   templateUrl: './book-list-item.component.html',
   styleUrls: ['./book-list-item.component.css']
 })

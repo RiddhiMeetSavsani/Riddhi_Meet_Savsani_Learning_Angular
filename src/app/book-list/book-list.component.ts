@@ -5,11 +5,12 @@ import { CommonModule, NgOptimizedImage } from "@angular/common";
 import { BookService } from '../services/book.service';
 import { Router, RouterLink } from "@angular/router";
 import {BookDescriptionPipe} from "../pipes/book-description.pipe";
+import {AvailabilityStylePipe} from "../pipes/availability-style.pipe";
 
 @Component({
   selector: 'app-book-list',
   standalone: true,
-  imports: [CommonModule, BookListItemComponent, NgOptimizedImage, RouterLink, BookDescriptionPipe], // Import the child component
+  imports: [CommonModule, BookListItemComponent, NgOptimizedImage, RouterLink, BookDescriptionPipe, AvailabilityStylePipe], // Import the child component
   templateUrl:'./book-list.component.html',
   styleUrls: ['./book-list.component.css'], // Correct the styleUrls property name
   encapsulation: ViewEncapsulation.None
