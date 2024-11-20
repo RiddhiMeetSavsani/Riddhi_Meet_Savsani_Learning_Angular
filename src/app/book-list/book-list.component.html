@@ -24,8 +24,8 @@
         />
       </td>
       <td>
-        <button (click)="editBook(book.isbn, $event)">Edit</button>
-        <button (click)="onDelete(book.isbn)">Delete</button>
+        <button (click)="editBook(book.isbn, $event)" [appHoverHighlight]="'lightblue'">Edit</button>
+        <button (click)="onDelete(book.isbn)" [appHoverHighlight]="'lightpink'">Delete</button>
       </td>
     </tr>
   </table>
