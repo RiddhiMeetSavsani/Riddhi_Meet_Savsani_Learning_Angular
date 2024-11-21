@@ -7,11 +7,12 @@ import { Router, RouterLink } from "@angular/router";
 import {BookDescriptionPipe} from "../pipes/book-description.pipe";
 import {AvailabilityStylePipe} from "../pipes/availability-style.pipe";
 import {HoverHighlightDirective} from "../directives/hover-highlight.directive";
+import {TooltipDirective} from "../directives/tooltip.directive";
 
 @Component({
   selector: 'app-book-list',
   standalone: true,
-  imports: [CommonModule, BookListItemComponent, NgOptimizedImage, RouterLink, BookDescriptionPipe, AvailabilityStylePipe, HoverHighlightDirective], // Import the child component
+  imports: [CommonModule, BookListItemComponent, NgOptimizedImage, RouterLink, BookDescriptionPipe, AvailabilityStylePipe, HoverHighlightDirective, TooltipDirective], // Import the child component
   templateUrl:'./book-list.component.html',
   styleUrls: ['./book-list.component.css'], // Correct the styleUrls property name
   encapsulation: ViewEncapsulation.None

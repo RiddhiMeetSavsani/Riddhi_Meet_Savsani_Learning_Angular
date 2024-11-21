@@ -7,11 +7,13 @@ import {BookService} from "../services/book.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {BookDescriptionPipe} from "../pipes/book-description.pipe";
 import {AvailabilityStylePipe} from "../pipes/availability-style.pipe";
+import {HoverHighlightDirective} from "../directives/hover-highlight.directive";
+import {TooltipDirective} from "../directives/tooltip.directive";
 
 @Component({
   selector: 'app-book-list-item',
   standalone: true,
-  imports: [CommonModule, NgOptimizedImage, BookDescriptionPipe, AvailabilityStylePipe],
+  imports: [CommonModule, NgOptimizedImage, BookDescriptionPipe, AvailabilityStylePipe, HoverHighlightDirective, TooltipDirective],
   templateUrl: './book-list-item.component.html',
   styleUrls: ['./book-list-item.component.css']
 })

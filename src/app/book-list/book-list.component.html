@@ -3,8 +3,8 @@
 
 
 
-    <tr *ngFor="let book of bookList; let i = index" [routerLink]="['/books',book.isbn ]" (click)="selectBook(book)" [appHoverHighlight]="'#ccebff'">
-      <td [ngClass]="{'last-td': i === bookList.length - 1}">
+    <tr *ngFor="let book of bookList; let i = index "  [routerLink]="['/books',book.isbn ]" (click)="selectBook(book)" [appHoverHighlight]="'#ccebff'" [appTooltip]="book.genre">
+      <td [ngClass]="{'last-td': i === bookList.length - 1}" >
         <h2>{{ book | bookDescription |uppercase}}</h2>
         <p>ISBN: {{ book?.isbn }}</p>
         <p>Price: {{ book?.price |currency :'CAD' : "symbol":'1.2-2' }}</p>

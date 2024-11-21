@@ -1,6 +1,9 @@
 <div *ngIf="book" class="book-detail">
   <table>
-    <tr>
+
+
+
+    <tr [appHoverHighlight]="'#fff3e6'" [appTooltip]="book.genre" >
       <td>
 
         <h2>{{ book |bookDescription |uppercase}}</h2>

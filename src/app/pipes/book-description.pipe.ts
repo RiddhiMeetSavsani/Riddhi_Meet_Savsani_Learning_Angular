@@ -8,7 +8,7 @@ import {Book} from "../models/book";
 export class BookDescriptionPipe implements PipeTransform {
 
   transform(book: Book): string {
-    return `${book.title} (${book.genre})`;
+    return `${book.title} by ${book.author}`;
   }
 
 }
