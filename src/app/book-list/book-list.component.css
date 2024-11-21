@@ -1,6 +1,10 @@
 
 table{
   margin:auto;
+  border-collapse: collapse;
+  width: 60%;
+  border: 2px solid black;
+  margin-top: 2em;
 }
 
 .bookListItem{
@@ -17,8 +21,12 @@ table{
   background-color: azure;
 }
 td:first-of-type{
-  width: 60%;
+  width: 50%;
 }
 button{
   margin: 1em;
+}
+td{
+  padding: 1em;
+  border-bottom: 2px solid black;
 }

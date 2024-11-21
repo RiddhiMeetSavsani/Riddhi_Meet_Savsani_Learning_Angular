@@ -6,38 +6,38 @@
 
     <tr>
       <td><label for="isbn">ISBN</label></td>
-      <td><input type="number" id="isbn" formControlName="isbn" /></td>
+      <td><input type="number" id="isbn" formControlName="isbn" [appHighlightOnFocus]="'#daffb3'" /></td>
     </tr>
     <tr>
       <td><label for="title">Title</label></td>
-      <td><input type="text" id="title" formControlName="title" /></td>
+      <td><input type="text" id="title" formControlName="title" [appHighlightOnFocus]="'#ffe6e6'" /></td>
     </tr>
     <tr>
       <td><label for="genre">Genre</label></td>
-      <td><input type="text" id="genre" formControlName="genre" /></td>
+      <td><input type="text" id="genre" formControlName="genre" [appHighlightOnFocus]="'#ffa366'" /></td>
     </tr>
     <tr>
       <td><label for="availability">Available</label></td>
-      <td><input type="checkbox" id="availability" formControlName="availability" /></td>
+      <td><input type="checkbox" id="availability" formControlName="availability" [appHighlightOnFocus]="'#e6ccff'"/></td>
     </tr>
     <tr>
       <td><label for="price">Price</label></td>
-      <td><input type="number" id="price" formControlName="price" /></td>
+      <td><input type="number" id="price" formControlName="price" [appHighlightOnFocus]="'#b3ffb3'"/></td>
     </tr>
     <tr>
       <td><label for="publishedDate">Published Date</label></td>
-      <td><input type="text" id="publishedDate" formControlName="publishedDate" /></td>
+      <td><input type="text" id="publishedDate" formControlName="publishedDate" [appHighlightOnFocus]="'#99ffe6'"/></td>
     </tr>
     <tr>
       <td><label for="imageUrl">Image URL(change only from 1,2,3,4)</label></td>
-      <td><input type="text" id="imageUrl" formControlName="imageUrl" /></td>
+      <td><input type="text" id="imageUrl" formControlName="imageUrl" [appHighlightOnFocus]="'#dab3ff'" /></td>
     </tr>
   </table>
 
   <br/><br/>
 
   <div class="form-buttons">
-    <button type="submit">Add(Update) Book</button>
-    <button type="button" (click)="navigateToBookList()">Back to List</button>
+    <button type="submit" [appHoverHighlight]="'lightgreen'">Add(Update) Book</button>
+    <button type="button" (click)="navigateToBookList()" [appHoverHighlight]="'lightyellow'" >Back to List</button>
   </div>
 </form>

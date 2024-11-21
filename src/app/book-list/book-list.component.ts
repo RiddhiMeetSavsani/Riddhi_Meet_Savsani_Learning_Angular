@@ -1,4 +1,4 @@
-import { Component, Input, ViewEncapsulation } from '@angular/core';
+import {Component, Input, NgIterable, ViewEncapsulation} from '@angular/core';
 import { Book } from "../models/book";
 import { BookListItemComponent } from "../book-list-item/book-list-item.component";
 import { CommonModule, NgOptimizedImage } from "@angular/common";
@@ -76,4 +76,6 @@ export class BookListComponent {
   }
 
   protected readonly onclick = onclick;
+
+
 }

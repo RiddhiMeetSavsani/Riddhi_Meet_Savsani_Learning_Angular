@@ -4,13 +4,17 @@ import {Book} from "../models/book";
 import {ActivatedRoute, Router} from "@angular/router";
 import {BookService} from "../services/book.service";
 import {UpperCasePipe} from "@angular/common";
+import {HoverHighlightDirective} from "../directives/hover-highlight.directive";
+import {HighlightOnFocusDirective} from "../directives/highlight-on-focus.directive";
 
 @Component({
   selector: 'app-modify-book-list-item',
   standalone: true,
   imports: [
     ReactiveFormsModule,
-    UpperCasePipe
+    UpperCasePipe,
+    HoverHighlightDirective,
+    HighlightOnFocusDirective
   ],
   templateUrl: './modify-book-list-item.component.html',
   styleUrl: './modify-book-list-item.component.css'
