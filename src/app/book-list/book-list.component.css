@@ -1,32 +1,36 @@
 
-table{
-  margin:auto;
-  border-collapse: collapse;
+/*table{*/
+/*  margin:auto;*/
+/*  border-collapse: collapse;*/
 
-  border: 2px solid black;
-  margin-top: 2em;
-}
+/*  border: 2px solid black;*/
+/*  margin-top: 2em;*/
+/*}*/
 
-.bookListItem{
-  border: 2px solid black;
-  padding: 10px;
-  width: 45em;
-  margin:auto;
-  margin-top: 2em;
-}
-.even{
-  background-color: aliceblue;
-}
-.odd{
-  background-color: azure;
-}
-td:first-of-type{
-  width: 50%;
-}
-button{
-  margin: 1em;
-}
-td{
-  padding: 1em;
-  border-bottom: 2px solid black;
+/*.bookListItem{*/
+/*  border: 2px solid black;*/
+/*  padding: 10px;*/
+/*  width: 45em;*/
+/*  margin:auto;*/
+/*  margin-top: 2em;*/
+/*}*/
+/*.even{*/
+/*  background-color: aliceblue;*/
+/*}*/
+/*.odd{*/
+/*  background-color: azure;*/
+/*}*/
+/*td:first-of-type{*/
+/*  width: 50%;*/
+/*}*/
+/*button{*/
+/*  margin: 1em;*/
+/*}*/
+/*td{*/
+/*  padding: 1em;*/
+/*  border-bottom: 2px solid black;*/
+/*}*/
+
+table {
+  width: 100%;
 }
