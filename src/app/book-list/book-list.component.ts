@@ -9,19 +9,23 @@ import {AvailabilityStylePipe} from "../pipes/availability-style.pipe";
 import {HoverHighlightDirective} from "../directives/hover-highlight.directive";
 import {TooltipDirective} from "../directives/tooltip.directive";
 import {MatTable, MatTableModule} from "@angular/material/table";
-import {MatButtonToggle, MatButtonToggleGroup} from "@angular/material/button-toggle";
-
+import {MatButtonToggle, MatButtonToggleGroup, MatButtonToggleModule} from "@angular/material/button-toggle";
+import { MatPaginatorModule} from "@angular/material/paginator";
+import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
+import { ViewChild, AfterViewInit } from '@angular/core';
 @Component({
   selector: 'app-book-list',
   standalone: true,
-  imports: [CommonModule, BookListItemComponent, NgOptimizedImage, RouterLink, BookDescriptionPipe, AvailabilityStylePipe, HoverHighlightDirective, TooltipDirective, MatTableModule, MatButtonToggleGroup, MatButtonToggle], // Import the child component
+  imports: [CommonModule, BookListItemComponent, NgOptimizedImage, RouterLink, BookDescriptionPipe, AvailabilityStylePipe, HoverHighlightDirective, TooltipDirective, MatTableModule, MatButtonToggleGroup, MatButtonToggleModule, MatPaginatorModule],
   templateUrl:'./book-list.component.html',
   styleUrls: ['./book-list.component.css'], // Correct the styleUrls property name
   encapsulation: ViewEncapsulation.None
 })
 export class BookListComponent {
   bookList:Book[]=[];
-
+  dataSource = new MatTableDataSource<Book>();
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   constructor (private bookService: BookService, private router: Router){
     //this constructor is primarily used for dependency injection
@@ -41,10 +45,13 @@ export class BookListComponent {
   ngOnInit() {
     this.refreshBookList(); // Call this method on initialization
   }
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+  }
 
   refreshBookList(): void {
     this.bookService.getBooksObservable().subscribe({
-      next: (data: Book[]) => this.bookList = data,
+      next: (data: Book[]) => {this.bookList = data; this.dataSource.data = data;},
       error: err => console.error("Error fetching Book", err),
       complete: () => console.log("Book data fetch complete!")
     });
@@ -65,8 +72,8 @@ export class BookListComponent {
 
   onDelete(isbn: number):void{
     this.bookService.deleteBook(isbn);
-    this.bookList = this.bookList.filter(book=> book.isbn!==isbn);
-    this.router.navigate(['/books']);
+    this.dataSource.data = this.dataSource.data.filter(book=> book.isbn!==isbn);
+    //this.router.navigate(['/books']);
   }
 
 

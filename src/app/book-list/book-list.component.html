@@ -1,5 +1,5 @@
 <div style="overflow-x: auto;">
-  <table mat-table [dataSource]="bookList" class="mat-elevation-z8 custom-table">
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 custom-table">
 
     <!-- ISBN Column -->
     <ng-container matColumnDef="isbn">
@@ -79,3 +79,8 @@
     <tr mat-row *matRowDef="let row; columns: ['isbn', 'price', 'publishedDate', 'availability', 'image', 'actions'];"></tr>
   </table>
 </div>
+<mat-paginator [length]="100"
+               [pageSize]="5"
+               [pageSizeOptions]="[5, 10, 25, 100]"
+               aria-label="Select page">
+</mat-paginator>
