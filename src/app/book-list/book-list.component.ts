@@ -9,11 +9,12 @@ import {AvailabilityStylePipe} from "../pipes/availability-style.pipe";
 import {HoverHighlightDirective} from "../directives/hover-highlight.directive";
 import {TooltipDirective} from "../directives/tooltip.directive";
 import {MatTable, MatTableModule} from "@angular/material/table";
+import {MatButtonToggle, MatButtonToggleGroup} from "@angular/material/button-toggle";
 
 @Component({
   selector: 'app-book-list',
   standalone: true,
-  imports: [CommonModule, BookListItemComponent, NgOptimizedImage, RouterLink, BookDescriptionPipe, AvailabilityStylePipe, HoverHighlightDirective, TooltipDirective, MatTableModule], // Import the child component
+  imports: [CommonModule, BookListItemComponent, NgOptimizedImage, RouterLink, BookDescriptionPipe, AvailabilityStylePipe, HoverHighlightDirective, TooltipDirective, MatTableModule, MatButtonToggleGroup, MatButtonToggle], // Import the child component
   templateUrl:'./book-list.component.html',
   styleUrls: ['./book-list.component.css'], // Correct the styleUrls property name
   encapsulation: ViewEncapsulation.None
