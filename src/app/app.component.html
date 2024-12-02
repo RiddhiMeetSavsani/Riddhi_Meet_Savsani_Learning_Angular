@@ -1,16 +1,35 @@
 
-<!-- Future Nav bar-->
+<!--&lt;!&ndash; Future Nav bar&ndash;&gt;-->
 
+<!--<div class="app-container">-->
+<!--  <h1>Assignment-9</h1>-->
+
+<!--  <div class="nav-bar">-->
+<!--    <nav>-->
+<!--      <a routerLink="/books" routerLinkActive="active">Book List(Home)</a>-->
+<!--      <br/><br/>-->
+<!--      <a routerLink="/modify-book" routerLinkActive="active">Modify Book List</a>-->
+<!--    </nav>-->
+<!--  </div>-->
+
+
+<!--  &lt;!&ndash;router outlet to display routed components &ndash;&gt;-->
+<!--  <router-outlet></router-outlet>-->
+<!--</div>-->
 <div class="app-container">
-  <h1>Assignment-9</h1>
+  <h1>{{ title }}</h1>
 
-  <div class="nav-bar">
-    <nav>
-      <a routerLink="/books" routerLinkActive="active">Book List(Home)</a>
-      <br/><br/>
-      <a routerLink="/modify-book" routerLinkActive="active">Modify Book List</a>
-    </nav>
-  </div>
+  <mat-toolbar>
+    <mat-toolbar-row>
+      <span><a routerLink="/books" routerLinkActive="active">Book List(Home)</a></span>
+    </mat-toolbar-row>
+
+    <mat-toolbar-row>
+      <span><a routerLink="/modify-book" routerLinkActive="active">Modify Book List</a></span>
+      <span class="example-spacer"></span>
+      <mat-icon class="example-icon" aria-hidden="false" aria-label="Example user verified icon">verified_user</mat-icon>
+    </mat-toolbar-row>
+  </mat-toolbar>
 
 
   <!--router outlet to display routed components -->

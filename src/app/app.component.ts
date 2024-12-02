@@ -6,11 +6,14 @@ import {BookListComponent} from "./book-list/book-list.component";
 //import {BookListItemComponent} from "./book-list-item/book-list-item.component";
 import { BookService } from './services/book.service';
 import {RouterModule} from "@angular/router";
+import {MatMenuModule} from "@angular/material/menu";
+import {MatIconModule} from "@angular/material/icon";
+import {MatToolbar, MatToolbarModule} from "@angular/material/toolbar";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterModule, RouterOutlet, CommonModule,BookListComponent],
+  imports: [RouterModule, RouterOutlet, CommonModule, BookListComponent, MatMenuModule, MatIconModule, MatToolbarModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
