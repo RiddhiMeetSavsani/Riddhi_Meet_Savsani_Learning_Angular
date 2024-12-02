@@ -14,10 +14,11 @@ import { MatPaginatorModule} from "@angular/material/paginator";
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { ViewChild, AfterViewInit } from '@angular/core';
+import {MatTooltip, MatTooltipModule} from "@angular/material/tooltip";
 @Component({
   selector: 'app-book-list',
   standalone: true,
-  imports: [CommonModule, BookListItemComponent, NgOptimizedImage, RouterLink, BookDescriptionPipe, AvailabilityStylePipe, HoverHighlightDirective, TooltipDirective, MatTableModule, MatButtonToggleGroup, MatButtonToggleModule, MatPaginatorModule],
+  imports: [CommonModule, BookListItemComponent, NgOptimizedImage, RouterLink, BookDescriptionPipe, AvailabilityStylePipe, HoverHighlightDirective, TooltipDirective, MatTableModule, MatButtonToggleGroup, MatButtonToggleModule, MatPaginatorModule, MatTooltipModule],
   templateUrl:'./book-list.component.html',
   styleUrls: ['./book-list.component.css'], // Correct the styleUrls property name
   encapsulation: ViewEncapsulation.None
