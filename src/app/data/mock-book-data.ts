@@ -207,7 +207,7 @@ export const bookList3: Book[] = [
     isbn: 49999,
     price: 95.80,
     availability: false,
-    imageUrl: "./assets/pngimg4.png",
+    imageUrl: "./assets/pngimg2.png",
     publishedDate: new Date(2019, 12, 1),
   },
   {
@@ -218,7 +218,7 @@ export const bookList3: Book[] = [
     isbn: 50000,
     price: 145.99,
     availability: true,
-    imageUrl: "./assets/pngimg4.png",
+    imageUrl: "./assets/pngimg1.png",
     publishedDate: new Date(2021, 9, 14),
   },
 ];

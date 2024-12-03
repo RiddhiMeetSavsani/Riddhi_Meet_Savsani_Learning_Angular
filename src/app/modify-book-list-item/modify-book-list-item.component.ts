@@ -6,6 +6,9 @@ import {BookService} from "../services/book.service";
 import {UpperCasePipe} from "@angular/common";
 import {HoverHighlightDirective} from "../directives/hover-highlight.directive";
 import {HighlightOnFocusDirective} from "../directives/highlight-on-focus.directive";
+import {MatTooltip, MatTooltipModule} from "@angular/material/tooltip";
+import {MatCheckbox, MatCheckboxModule} from "@angular/material/checkbox";
+import {MatIcon, MatIconModule} from "@angular/material/icon";
 
 @Component({
   selector: 'app-modify-book-list-item',
@@ -14,7 +17,10 @@ import {HighlightOnFocusDirective} from "../directives/highlight-on-focus.direct
     ReactiveFormsModule,
     UpperCasePipe,
     HoverHighlightDirective,
-    HighlightOnFocusDirective
+    HighlightOnFocusDirective,
+    MatTooltipModule,
+    MatCheckboxModule,
+    MatIconModule
   ],
   templateUrl: './modify-book-list-item.component.html',
   styleUrl: './modify-book-list-item.component.css'
