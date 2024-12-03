@@ -1,40 +1,45 @@
 <div *ngIf="book" class="book-detail">
-  <table>
+  <div *ngIf="book" class="book-detail">
+    <table>
+      <tr>
+        <td>
+          <mat-card class="example-card" appearance="outlined">
+            <mat-card-header>
+              <mat-card-title-group>
+                <!-- Left Side Content -->
+                <div>
+                  <mat-card-title>{{ book.title }}</mat-card-title>
+                  <p>ISBN: {{ book.isbn }}</p>
 
+                  <p>Published Date: {{ book.publishedDate | date: 'yyyy-MM-dd' }}</p>
+                  <p
+                    [ngStyle]="{
+                    'color': (book | availabilityStyle).color,
+                    'font-weight': (book | availabilityStyle).fontWeight
+                  }"
+                  >
+                    {{ (book | availabilityStyle).text }}
+                  </p>
+                </div>
+                <!-- Right Side Image -->
+                <img
+                  mat-card-image
+                  [ngSrc]="book.imageUrl || '../assets/pngimg1.png'"
+                  alt="{{ book.title }}"
+                  width="150"
+                  height="150"
+                  matTooltip="{{ book.genre }}"
+                  matTooltipPosition="left"
+                  aria-label="Book Genre Tooltip"
+                />
+              </mat-card-title-group>
+            </mat-card-header>
+          </mat-card>
+        </td>
+      </tr>
+    </table>
+  </div>
 
-
-    <tr [appHoverHighlight]="'#fff3e6'" [appTooltip]="book.genre" >
-      <td>
-
-        <h2>{{ book |bookDescription |uppercase}}</h2>
-        <p>ISBN: {{ book.isbn }}</p>
-        <p>Price: {{ book.price |currency :'CAD' : "symbol":'1.2-2' }}</p>
-        <p>Published Date: {{ book.publishedDate |date :'yyyy-MM-dd' }}</p>
-        <p [ngStyle]="{ 'color': (book | availabilityStyle).color, 'font-weight': (book | availabilityStyle).fontWeight }">
-          {{ (book | availabilityStyle).text }}
-        </p>
-
-      </td>
-      <td>
-
-
-        <img
-          [ngSrc]="book.imageUrl || '../assets/pngimg1.png'"
-          alt="{{ book.title }}"
-          width="212"
-          height="212"
-          priority
-        />
-
-      </td>
-    </tr>
-
-  </table>
-  <!-- Navigation buttons
-  <button (click)="goBackward()" [disabled]="currentIndex === 0">Previous</button>
-  <button (click)="goForward()" [disabled]="currentIndex === userList.length - 1">Next</button>
-  <button (click)="goBack()">Back to Student List</button>
--->
 </div>
 
 

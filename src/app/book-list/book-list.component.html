@@ -7,6 +7,12 @@
       <td mat-cell *matCellDef="let book"> {{ book.isbn }} </td>
     </ng-container>
 
+    <!-- Book title Column -->
+    <ng-container matColumnDef="title">
+      <th mat-header-cell *matHeaderCellDef> Book Title </th>
+      <td mat-cell *matCellDef="let book"> {{ book.title }} </td>
+    </ng-container>
+
     <!-- Price Column -->
     <ng-container matColumnDef="price">
       <th mat-header-cell *matHeaderCellDef class="price-column"> Price </th>
@@ -73,11 +79,11 @@
     </ng-container>
 
     <!-- Table Header and Rows -->
-    <tr mat-header-row *matHeaderRowDef="['isbn', 'price', 'publishedDate', 'availability', 'image', 'actions']"></tr>
-    <tr mat-row *matRowDef="let book; columns: ['isbn', 'price', 'publishedDate', 'availability', 'image', 'actions'];"
+    <tr mat-header-row *matHeaderRowDef="['isbn', 'title', 'price', 'publishedDate', 'availability', 'image', 'actions']"></tr>
+    <tr mat-row *matRowDef="let book; columns: ['isbn','title', 'price', 'publishedDate', 'availability', 'image', 'actions'];"
         matTooltip="{{ book.genre }}"
         matTooltipPosition="left"
-        aria-label="Book Genre Tooltip" >
+        aria-label="Book Genre Tooltip"  [routerLink]="['/books',book.isbn ]" (click)="selectBook(book)">
     </tr>
   </table>
 </div>

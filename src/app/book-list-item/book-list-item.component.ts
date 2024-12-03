@@ -9,11 +9,21 @@ import {BookDescriptionPipe} from "../pipes/book-description.pipe";
 import {AvailabilityStylePipe} from "../pipes/availability-style.pipe";
 import {HoverHighlightDirective} from "../directives/hover-highlight.directive";
 import {TooltipDirective} from "../directives/tooltip.directive";
+import {
+  MatCard,
+  MatCardHeader,
+  MatCardModule,
+  MatCardSubtitle,
+  MatCardTitle,
+  MatCardTitleGroup
+} from "@angular/material/card";
+import {MatTooltip, MatTooltipModule} from "@angular/material/tooltip";
+import {MatIcon, MatIconModule} from "@angular/material/icon";
 
 @Component({
   selector: 'app-book-list-item',
   standalone: true,
-  imports: [CommonModule, NgOptimizedImage, BookDescriptionPipe, AvailabilityStylePipe, HoverHighlightDirective, TooltipDirective],
+  imports: [CommonModule, NgOptimizedImage, BookDescriptionPipe, AvailabilityStylePipe, HoverHighlightDirective, TooltipDirective, MatCardModule, MatCardHeader, MatCardTitleGroup, MatCardTitle, MatCardSubtitle, MatTooltipModule, MatIconModule],
   templateUrl: './book-list-item.component.html',
   styleUrls: ['./book-list-item.component.css']
 })
